@@ -1,0 +1,4 @@
+repository "The_Fame_Bomber@Les_Broazhers@cloud"
+  path "/"
+    br "/main"
+    co "/main"
