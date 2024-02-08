@@ -11,33 +11,76 @@ public class joueur : MonoBehaviour
     public float rotY = 0f;
 
     public GameObject cam;
+    public Animator anim;
+    public bool conflitAv;
+    public bool conflitAR;
+    public bool conflitG;
+    public bool conflitD;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Get the animator, which you attach to the GameObject you are intending to animate.
+        anim = GetComponent<Animator>();
+        conflitAv = false;
+        conflitAR = false;
+        conflitG = false;
+        conflitD = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W)) // Avant
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+            if (!conflitAR)
+            {
+                conflitAv = true;
+                transform.Translate(Vector3.forward * Time.deltaTime * speed);
+                anim.SetBool("avant", true);
+            }
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)) // Gauche
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            if (!conflitD)
+            {
+                conflitG = true;
+                transform.Translate(Vector3.left * Time.deltaTime * speed);
+                anim.SetBool("gauche", true);
+            }
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)) // Droite
         {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
+            if (!conflitG)
+            {
+                conflitD = true;
+                transform.Translate(Vector3.right * Time.deltaTime * speed);
+                anim.SetBool("droite", true);
+            }
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S)) // Arriere
         {
-            transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+            if (!conflitAv)
+            {
+                conflitAR = true;
+                transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+                anim.SetBool("arriere", true);
+            }
         }
+        
+        else
+        {
+            anim.SetBool("avant", false);
+            anim.SetBool("arriere", false);
+            anim.SetBool("gauche", false);
+            anim.SetBool("droite", false);
+            conflitAv = false;
+            conflitAR = false;
+            conflitG = false;
+            conflitD = false;
 
+        }
         rotCamX += Input.GetAxis("Mouse Y") * -MousSpeed;
         rotY += Input.GetAxis("Mouse X") * MousSpeed;
         cam.transform.localEulerAngles = new Vector3(rotCamX, 0, 0);

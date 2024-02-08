@@ -618,7 +618,7 @@ Animator:
   m_GameObject: {fileID: 1760374994464548006}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fd6f501e36cb69a48b69e0ab2bbb857a, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c17de34df018484f82f34dfc924ee74, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -696,6 +696,7 @@ MonoBehaviour:
   rotCamX: 0
   rotY: 0
   cam: {fileID: 3879379284201874469}
+  anim: {fileID: 2414850636269349465}
 --- !u!1 &1809472568464887092
 GameObject:
   m_ObjectHideFlags: 0
