@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - invisible joueur
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - invisible joueur
   - Water
   - UI
   - 

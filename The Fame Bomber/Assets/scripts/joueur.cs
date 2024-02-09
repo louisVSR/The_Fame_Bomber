@@ -21,6 +21,7 @@ public class joueur : MonoBehaviour
     void Start()
     {
         //Get the animator, which you attach to the GameObject you are intending to animate.
+        Cursor.visible = false;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
