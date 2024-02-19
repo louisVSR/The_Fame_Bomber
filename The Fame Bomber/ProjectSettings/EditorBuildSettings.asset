@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/DEATHRUN.unity
+    guid: 8cfb3efeb36ed8940ba91556d2189011
   m_configObjects: {}

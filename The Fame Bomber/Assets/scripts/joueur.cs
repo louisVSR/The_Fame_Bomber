@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class joueur : MonoBehaviour
+public class joueur : NetworkBehaviour
 {
     //script temporaire : le mouvement de la camera et les deplacements vont etre retravaillés.
     public float speed = 5;
@@ -29,21 +29,24 @@ public class joueur : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        bool isMoving = Anim();
-        grounded = IsGrounded();
-        if (!isMoving)
+        if (this.isLocalPlayer)
         {
-            anim.SetBool("avant", false);
-            anim.SetBool("arriere", false);
-            anim.SetBool("gauche", false);
-            anim.SetBool("droite", false);
+            bool isMoving = Anim();
+            grounded = IsGrounded();
+            if (!isMoving)
+            {
+                anim.SetBool("avant", false);
+                anim.SetBool("arriere", false);
+                anim.SetBool("gauche", false);
+                anim.SetBool("droite", false);
+            }
+            rotCamX += Input.GetAxis("Mouse Y") * -MousSpeed;
+            rotY += Input.GetAxis("Mouse X") * MousSpeed;
+            cam.transform.localEulerAngles = new Vector3(rotCamX, 0, 0);
+            transform.localEulerAngles = new Vector3(0, rotY, 0);
         }
-        rotCamX += Input.GetAxis("Mouse Y") * -MousSpeed;
-        rotY += Input.GetAxis("Mouse X") * MousSpeed;
-        cam.transform.localEulerAngles = new Vector3(rotCamX, 0, 0);
-        transform.localEulerAngles = new Vector3(0, rotY, 0);
 
     }
 
