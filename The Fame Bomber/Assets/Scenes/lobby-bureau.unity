@@ -690,6 +690,10 @@ PrefabInstance:
       propertyPath: MousSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8632126303185682083, guid: e6a7797a3f4632434817dc6b2c189d38, type: 3}
+      propertyPath: sceneId
+      value: 3965754927
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
