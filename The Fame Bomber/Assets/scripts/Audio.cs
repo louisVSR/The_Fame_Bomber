@@ -4,26 +4,16 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
 
-[System.Serializable]
-public class SoundData : MonoBehaviour
-{
-    public string soundName;
-    public AudioClip clip;
-    [Range(0f, 1f)]
-    public float volume;
-}
-
 public class AudioManager : MonoBehaviour
 {
-    public SoundData[] music,effect;
+    public SoundData[] music, effect;
     public AudioSource musicSource, sfxsource;
-    
+
     // Start is called before the first frame update 
     void Start()
     {
-        PlayMusic("country-dreams-country-ballad-621");
         Debug.Log("Start");
-
+        PlayMusic("country-dreams-country-ballad-621");
     }
     public void PlayMusic(string name)
     {
@@ -42,6 +32,15 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
+[System.Serializable]
+public class SoundData : MonoBehaviour
+{
+    public string soundName;
+    public AudioClip clip;
+    [Range(0f, 1f)]
+    public float volume;
+}
+
