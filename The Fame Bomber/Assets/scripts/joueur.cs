@@ -17,6 +17,9 @@ public class joueur : NetworkBehaviour
     public Animator anim;
     public CapsuleCollider col;
 
+    private Vector3 posDepart;
+    private Vector3 rotDepart;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,8 @@ public class joueur : NetworkBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
+
+        posDepart = transform.position;
     }
 
     // Update is called once per frame
@@ -109,5 +114,15 @@ public class joueur : NetworkBehaviour
 
         return res;
        
+    }
+
+
+    //Pour le Niveau 2
+    public void Repere()
+    {
+        //Si repéré, le joueur revient au départ
+        transform.position = posDepart;
+
+        //rajouter la direction du personnage
     }
 }

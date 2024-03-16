@@ -34,16 +34,11 @@ public class IACuisinier : MonoBehaviour
         if (etat==ATTENTE)
         {
             compteur += Time.deltaTime;
-            //text.SetText("Cuisine");
             if (compteur > aAttendre) 
             {
                 etat = MOUVEMENT;
                 position = (position + 1) % wayPoints.Count;
                 nma.SetDestination(wayPoints[position].transform.position);
-            }
-            else
-            {
-                //text.SetText("");
             }
             
         }
