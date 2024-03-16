@@ -13,7 +13,7 @@ public class nv1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.OnTimerStart();
+       
         cam_anim.orthographicSize = size;
         cam_animGO.SetActive(true);
        
