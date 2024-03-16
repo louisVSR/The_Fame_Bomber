@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start menu.unity
+    guid: b921b5963bab14a4081c44e8a483433d
+  - enabled: 1
+    path: Assets/Scenes/lobby-bureau.unity
+    guid: 900d590105cf1a2e0b9869572c463582
+  - enabled: 1
     path: Assets/Scenes/DEATHRUN.unity
     guid: 8cfb3efeb36ed8940ba91556d2189011
   m_configObjects: {}
