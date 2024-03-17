@@ -31,7 +31,7 @@ public class nv1 : MonoBehaviour
     public void Anim_Base()
     {
         size = size/(1+add);
-        add = add / 1.0017f;
+        add = add / 1.0015f;
         cam_anim.orthographicSize = size;
         if (size <2.1f)
         {
