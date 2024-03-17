@@ -10,8 +10,8 @@ public class DeathTriggerNv1 : MonoBehaviour
         {
             //mort : on peut egalement ajouter un element graphique.
             collision.transform.position = new Vector3(1.77f, -2.3f, -3.13f);
-            collision.gameObject.transform.eulerAngles =new Vector3(0, -17.65f, 0);
-            Vector3 rotation = collision.transform.eulerAngles;
+            collision.transform.eulerAngles =new Vector3(0, -17.65f, 0);
+            collision.transform.rotation = new Quaternion(0, -17.65f, 0,0);
         }
     }
 }

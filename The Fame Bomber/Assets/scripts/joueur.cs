@@ -66,7 +66,6 @@ public class joueur : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            Debug.Log("moooonstre");
             rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
             anim.SetTrigger("saut");
         }
