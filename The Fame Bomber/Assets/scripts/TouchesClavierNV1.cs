@@ -8,12 +8,13 @@ public class TouchesClavierNV1 : MonoBehaviour
     public int signeDeplacement = 1;
     public float speed = 5;
     public float currentPos = 0;
-    private Vector3 PosDiff;
-
+    public Vector3 PosDiff;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -36,17 +37,22 @@ public class TouchesClavierNV1 : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        PosDiff = new Vector3(transform.position.x - collision.transform.position.x,0, transform.position.z - collision.transform.position.z);
-
+        if (other.gameObject.tag == "Player")
+        {
+            Vector3 tmp = other.gameObject.transform.position;
+            PosDiff = new Vector3(tmp.x - transform.position.x, 0, tmp.z -transform.position.z);
+        }
     }
 
-    public void OnCollisionStay(Collision collision)
+    public void OnTriggerStay(Collider other)
     {
-        Debug.Log("Marche");
-        //collision.transform.Translate(new Vector3(signeDeplacement * speed * Time.deltaTime, 0, 0));
-        collision.transform.position = new Vector3(transform.position.x - PosDiff.x, collision.transform.position.y, transform.position.z - PosDiff.z);
+        if (other.gameObject.tag == "Player")
+        {
+            Vector3 tmp = other.gameObject.transform.position;
+            other.gameObject.transform.position = new Vector3(transform.position.x + PosDiff.x, tmp.y, transform.position.z + PosDiff.z);
+        }
     }
 
 }

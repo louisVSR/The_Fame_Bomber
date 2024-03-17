@@ -29,7 +29,6 @@ public class joueur : NetworkBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
-
         posDepart = transform.position;
     }
 
@@ -94,6 +93,7 @@ public class joueur : NetworkBehaviour
             anim.SetBool("droite", true);
             res = true;
         }
+
 
         if (Input.GetKeyUp(KeyCode.W))
         {
