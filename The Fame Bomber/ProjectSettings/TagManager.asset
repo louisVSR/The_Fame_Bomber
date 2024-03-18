@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - invisible joueur
+  - check1
+  - check2
   layers:
   - Default
   - TransparentFX
