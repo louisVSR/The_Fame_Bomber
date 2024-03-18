@@ -7,8 +7,8 @@ public class DeathTriggerNv1 : MonoBehaviour
 
     private Vector3 RespawnPosition0 = new Vector3(1.77f, -2.3f, -3.13f);
     private Vector3 RespawnPosition1 = new Vector3(9,10,13.6f);
-    private Vector3 RespawnPosition2 = new Vector3(14.6f, 24.5f, 63.2f);
-    private Vector3 RespawnPosition3;
+    private Vector3 RespawnPosition2 = new Vector3(15.1f, 22f, 59.4f);
+    private Vector3 RespawnPosition3 = new Vector3(43.2f,23,60f);
     public List<List<GameObject>> lst = new List<List<GameObject>>(3);
     //lst list contenant a l'indice 0 la liste des joueurs ayant atteint le checkpoint 1, etc.
 

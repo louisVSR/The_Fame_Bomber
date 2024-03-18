@@ -6,6 +6,12 @@ public class CheckpointNV1 : MonoBehaviour
 {
 
     public GameObject manager;
+    public Animator anim;
+
+    public void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -30,5 +36,7 @@ public class CheckpointNV1 : MonoBehaviour
                 manager.GetComponent<DeathTriggerNv1>().lst[2].Add(other.gameObject);
             }
         }
+
+        anim.SetTrigger("activation");
     }
 }
