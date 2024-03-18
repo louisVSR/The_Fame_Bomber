@@ -9,67 +9,55 @@ public class DeathTriggerNv1 : MonoBehaviour
     private Vector3 RespawnPosition1 = new Vector3(9,10,13.6f);
     private Vector3 RespawnPosition2 = new Vector3(14.6f, 24.5f, 63.2f);
     private Vector3 RespawnPosition3;
-    private List<List<GameObject>> lst;
-    private List<int> lst2 = new List<int>(3);
+    public List<List<GameObject>> lst = new List<List<GameObject>>(3);
     //lst list contenant a l'indice 0 la liste des joueurs ayant atteint le checkpoint 1, etc.
 
     public void Start()
     {
-        Debug.Log(lst2.Count);
-        lst = new List<List<GameObject>>(3);
+        
+        EmptyLST();
+        Debug.Log(lst.Count);
+    }
+
+    public void EmptyLST ()
+    {
+
+        for (int i =0; i<3;i++)
+        {
+            lst.Add(new List<GameObject>(2));
+            for (int j =0;j<2;j++)
+            {
+                lst[i].Add(null);
+            }
+        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("deja ca c bon.");
-        
-        if (tag == "check1")
+        if (other.gameObject.tag == "Player")
         {
-            if (!lst[0].Contains(other.gameObject))
+            Debug.Log(lst.Count);
+            //mort : on peut egalement ajouter un element graphique.
+            if (lst[2].Count > 0 && lst[2].Contains(other.gameObject))
             {
-                lst[0].Add(other.gameObject);
+                other.transform.position = RespawnPosition3;
             }
-        }
-        else if (tag == "check2")
-        {
-            if (!lst[1].Contains(other.gameObject))
+            else if (lst[1].Count > 0 && lst[1].Contains(other.gameObject))
             {
-                lst[1].Add(other.gameObject);
+                other.transform.position = RespawnPosition2;
             }
-        }
-        else if (tag == "check3")
-        {
-            if (!lst[2].Contains(other.gameObject))
+            else if (lst[0].Count > 0 && lst[0].Contains(other.gameObject))
             {
-                lst[2].Add(other.gameObject);
+                other.transform.position = RespawnPosition1;
             }
-        }
-        else
-        {
-            if (other.gameObject.tag == "Player")
+            else
             {
-                Debug.Log(lst.Count);
-                //mort : on peut egalement ajouter un element graphique.
-                if (lst[2].Count > 0 && lst[2].Contains(other.gameObject))
-                {
-                    other.transform.position = RespawnPosition3;
-                }
-                else if (lst[1].Count > 0 && lst[1].Contains(other.gameObject))
-                {
-                    other.transform.position = RespawnPosition2;
-                }else if (lst[0].Count > 0 && lst[0].Contains(other.gameObject))
-                {
-                    other.transform.position = RespawnPosition1;
-                }
-                else
-                {
-                    other.transform.position = RespawnPosition0;
-                }
+                other.transform.position = RespawnPosition0;
+            }
 
-                //rotation marche pas.
-                other.transform.eulerAngles = new Vector3(0, -17.65f, 0);
-                other.transform.rotation = new Quaternion(0, -17.65f, 0, 0);
-            }
+            //rotation marche pas.
+            other.transform.eulerAngles = new Vector3(0, -17.65f, 0);
+
         }
     }
 }
