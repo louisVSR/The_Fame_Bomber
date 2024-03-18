@@ -585,6 +585,7 @@ GameObject:
   - component: {fileID: 7053012309948525192}
   - component: {fileID: 8632126303185682083}
   - component: {fileID: 5165351160482543881}
+  - component: {fileID: -3166290201329985134}
   m_Layer: 0
   m_Name: perso-base
   m_TagString: Player
@@ -701,6 +702,7 @@ MonoBehaviour:
   rotCamX: 0
   rotY: 0
   grounded: 1
+  isLinked: 0
   cam: {fileID: 3879379284201874469}
   rb: {fileID: 0}
   anim: {fileID: 2414850636269349465}
@@ -757,6 +759,23 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &-3166290201329985134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760374994464548006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  clientAuthority: 1
+  animator: {fileID: 2414850636269349465}
 --- !u!1 &1809472568464887092
 GameObject:
   m_ObjectHideFlags: 0
