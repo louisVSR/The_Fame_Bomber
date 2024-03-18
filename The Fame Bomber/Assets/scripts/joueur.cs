@@ -11,6 +11,7 @@ public class joueur : NetworkBehaviour
     public float rotCamX = 0f;
     public float rotY = 0f;
     public bool grounded = true;
+    public bool isLinked = false;
 
     public GameObject cam;
     public Rigidbody rb;
@@ -63,7 +64,7 @@ public class joueur : NetworkBehaviour
     {
         bool res = false;
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && (isLinked || IsGrounded()))
         {
             rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
             anim.SetTrigger("saut");
