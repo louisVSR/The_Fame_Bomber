@@ -34,7 +34,7 @@ public class joueur : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (this.isLocalPlayer)
         {
