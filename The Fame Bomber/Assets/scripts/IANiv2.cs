@@ -11,15 +11,15 @@ public class IANiv2 : MonoBehaviour
     private int position;
     private NavMeshAgent nma;
 
-    private int etat;
+    public int etat;
     private const int MOUVEMENT = 0;
     private const int ATTENTE = 1;
     private const int SETOURNERVERS = 2;
     private float compteur;
     private float aAttendre;
-    private Quaternion pos;
+    public int nbFrames;
+    private Quaternion rotDepart;
 
-    public TextMeshPro text;
 
     void Start()
     {
@@ -27,7 +27,8 @@ public class IANiv2 : MonoBehaviour
         nma = GetComponent<NavMeshAgent>();
         nma.SetDestination(wayPoints[position].transform.position);
         etat = MOUVEMENT;
-        text = GetComponentInChildren<TextMeshPro>();
+        nbFrames = 0;
+        compteur = 0f;
     }
 
     void Update()
@@ -40,17 +41,18 @@ public class IANiv2 : MonoBehaviour
                 etat = MOUVEMENT;
                 position = (position + 1) % wayPoints.Count;
                 nma.SetDestination(wayPoints[position].transform.position);
+                compteur = 0f;
             }
 
         }
         if (etat == SETOURNERVERS)
         {
-            compteur++;
-            this.transform.rotation = Quaternion.Lerp(pos, wayPoints[position].transform.rotation, compteur / 30);
-            if (this.transform.rotation == wayPoints[position].transform.rotation)
+            nbFrames++;
+            this.transform.rotation = Quaternion.Lerp(rotDepart, wayPoints[position].transform.rotation, nbFrames / 30f);
+            if (nbFrames >= 30)
             {
                 etat = ATTENTE;
-                compteur = 0;
+                nbFrames = 0;
             }
         }
     }
@@ -60,9 +62,10 @@ public class IANiv2 : MonoBehaviour
         if ((other.gameObject.layer == 7) && (nma.remainingDistance < 0.5))
         {
             etat = SETOURNERVERS;
-            compteur = 0;
+            compteur = 0f;
+            nbFrames = 0;
             aAttendre = other.gameObject.GetComponent<wpControler>().tempsAttente;
-            pos = transform.rotation;
+            rotDepart = transform.rotation;
         }
     }
 }

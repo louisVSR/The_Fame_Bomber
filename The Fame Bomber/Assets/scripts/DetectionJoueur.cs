@@ -7,7 +7,7 @@ public class DetectionJoueur : MonoBehaviour
     [Tooltip("ref du joueur")]
     public GameObject refJoueur;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag != "Player")
             return;
