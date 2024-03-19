@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class IACuisinier : MonoBehaviour
+public class IANiv2 : MonoBehaviour
 {
     public List<GameObject> wayPoints = new List<GameObject>();
     private int position;

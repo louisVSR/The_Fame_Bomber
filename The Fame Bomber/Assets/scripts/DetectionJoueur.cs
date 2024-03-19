@@ -9,6 +9,8 @@ public class DetectionJoueur : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag != "Player")
+            return;
         RaycastHit hit;
         bool detected = false;
         if (Physics.Linecast(transform.position, refJoueur.transform.position, out hit))
