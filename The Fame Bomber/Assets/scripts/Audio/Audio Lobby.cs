@@ -3,19 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class AudioManager : MonoBehaviour
 {
     public AudioSource music;
     public AudioClip Musique;
-    [Range(0f, 1f)]
-    public float volume;
+    [SerializeField] Slider VolumeSlider;
 
     // Start is called before the first frame update 
     void Start()
     {
-        music.volume = volume;
+        VolumeSlider.value = 0.5f;
+        music.volume = VolumeSlider.value;
         music.clip = Musique;
         music.Play();
     }
@@ -23,7 +24,7 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        music.volume = volume;
+        music.volume = VolumeSlider.value;
     }
 }
 
