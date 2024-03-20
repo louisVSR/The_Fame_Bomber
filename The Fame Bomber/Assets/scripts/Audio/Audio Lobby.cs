@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update 
     void Start()
     {
-        VolumeSlider.value = 0.5f;
+        VolumeSlider.value = 1f;
         music.volume = VolumeSlider.value;
         music.clip = Musique;
         music.Play();
