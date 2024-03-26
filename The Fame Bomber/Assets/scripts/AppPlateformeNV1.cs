@@ -21,7 +21,7 @@ public class AppPlateformeNV1 : MonoBehaviour
     void Update()
     {
         posy = transform.position.y;
-        if (posy < -6)
+        if (posy < -5)
         {
             Invoke("ResetPos",2f);
         }
